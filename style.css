@@ -933,12 +933,15 @@ section {
 /* ── CONTACT ── */
 .contact-big {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-size: clamp(1.1rem, 5vw, 5.5rem);
   font-weight: 800;
   letter-spacing: -0.04em;
-  line-height: 1;
+  line-height: 1.1;
   margin: 32px 0;
   display: block;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  max-width: 100%;
   transition: color 0.2s
 }
 
