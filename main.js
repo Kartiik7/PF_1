@@ -21,11 +21,10 @@
     const metaDesc = document.getElementById('meta-desc');
     if (metaDesc) metaDesc.content = `${personal.name} — ${personal.role}. ${personal.tagline}`;
 
-    // 2. Personal Info (Hero, Nav, Contact)
+    // 2. Personal Info
     const navLogo = document.getElementById('nav-logo');
     if (navLogo) navLogo.innerHTML = `${personal.initials}<em>.</em>`;
     document.querySelectorAll('.nav-logo-target').forEach(el => el.innerHTML = `${personal.initials}<em>.</em>`);
-
     document.querySelectorAll('.resume-link').forEach(el => el.href = personal.resume);
     document.querySelectorAll('.github-link').forEach(el => el.href = `https://github.com/${personal.github}`);
 
@@ -66,7 +65,7 @@
     // 4. Marquee
     const marqueeTarget = document.getElementById('marquee-target');
     if (marqueeTarget) {
-      const items = [...skills.marquee, ...skills.marquee]; // Duplicate for seamless loop
+      const items = [...skills.marquee, ...skills.marquee];
       marqueeTarget.innerHTML = items.map(item => `<span class="marquee-item">${item}</span><span class="marquee-sep">✦</span>`).join('');
     }
 
@@ -115,7 +114,7 @@
       </p>
     `;
 
-    // 6. Work
+    // 6. Work (Home Page)
     const workTarget = document.getElementById('work-list-target');
     if (workTarget) {
       workTarget.innerHTML = projects.map((p, i) => `
@@ -123,18 +122,48 @@
           <span class="work-num">${p.id}</span>
           <div class="work-info">
             <span class="work-name">${p.name}</span>
-            <span class="work-stack">${p.stack}</span>
+            <div class="work-stack-desc">
+              <span class="work-stack">${p.stack}</span>
+              <p class="work-desc">${p.desc}</p>
+            </div>
           </div>
           <div class="work-links">
-            ${p.live ? `<a class="work-link live" href="${p.live}" target="_blank" rel="noopener">Live ↗</a>` : ''}
+            ${p.live && p.live !== '#' ? `<a class="work-link live" href="${p.live}" target="_blank" rel="noopener">Live ↗</a>` : ''}
             ${p.github ? `<a class="work-link" href="https://github.com/${p.github}" target="_blank" rel="noopener">GitHub</a>` : ''}
           </div>
           <span class="work-yr">${p.year}</span>
           <span class="work-arrow" aria-hidden="true">→</span>
           ${p.image ? `
           <div class="work-preview">
-            <img src="${p.image}" alt="${p.name}" loading="lazy"/>
+            <img src="${p.image}" alt="${p.name}" loading="lazy" class="enlarge-trigger"/>
           </div>` : ''}
+        </div>
+      `).join('');
+    }
+
+    // 6.b. Gallery (Dedicated Page)
+    const galleryTarget = document.getElementById('projects-gallery-target');
+    if (galleryTarget) {
+      galleryTarget.innerHTML = projects.map((p, i) => `
+        <div class="pg-card rv rv-d${i % 4}">
+          <div class="pg-img-box enlarge-trigger-box">
+            <img src="${p.image || 'https://via.placeholder.com/800x500/111/111?text=' + p.name}" alt="${p.name}" loading="lazy" class="enlarge-trigger"/>
+            <div class="pg-img-overlay">
+               <span>Click to enlarge</span>
+            </div>
+          </div>
+          <div class="pg-content">
+            <div class="pg-head">
+              <h3 class="pg-title">${p.name}</h3>
+              <span class="pg-year">${p.year}</span>
+            </div>
+            <p class="pg-desc">${p.desc}</p>
+            <span class="pg-stack">${p.stack}</span>
+            <div class="pg-links">
+              ${p.live && p.live !== '#' ? `<a class="pg-btn accent" href="${p.live}" target="_blank" rel="noopener">Live Demo ↗</a>` : ''}
+              ${p.github ? `<a class="pg-btn" href="https://github.com/${p.github}" target="_blank" rel="noopener">Source Code</a>` : ''}
+            </div>
+          </div>
         </div>
       `).join('');
     }
@@ -236,9 +265,8 @@
     }
     animCursor();
 
-    const hoverQuery = 'a, button, .pill-btn, .btn-accent, .btn-outline, .work-row, .bc, .social-btn, .cp-card';
     const updateHovers = () => {
-      document.querySelectorAll(hoverQuery).forEach(el => {
+      document.querySelectorAll('a, button, .pill-btn, .btn-accent, .btn-outline, .work-row, .bc, .social-btn, .cp-card, .enlarge-trigger').forEach(el => {
         el.addEventListener('mouseenter', () => ring.classList.add('hover'));
         el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
       });
@@ -275,6 +303,27 @@
       mOv.addEventListener('click', close);
       mNav.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
     }
+
+    // ── Image Lightbox ──
+    const initLightbox = () => {
+      const triggers = document.querySelectorAll('.enlarge-trigger');
+      if (triggers.length === 0) return;
+
+      let lb = document.getElementById('lightbox');
+      if (!lb) {
+        lb = document.createElement('div');
+        lb.id = 'lightbox';
+        lb.innerHTML = `<div class="lb-content"><img src="" alt="Enlarged view"/><button class="lb-close">×</button></div>`;
+        document.body.appendChild(lb);
+        lb.addEventListener('click', e => { if (e.target.id === 'lightbox' || e.target.classList.contains('lb-close')) lb.classList.remove('active'); });
+      }
+
+      const lbImg = lb.querySelector('img');
+      triggers.forEach(t => {
+        t.addEventListener('click', e => { e.stopPropagation(); lbImg.src = t.src; lb.classList.add('active'); });
+      });
+    };
+    initLightbox();
 
     // ── Scroll Reveal ──
     const initReveal = () => {

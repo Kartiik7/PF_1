@@ -60,7 +60,8 @@
       "live": "https://studyflow.app",
       "github": "kartiik7/studyflow",
       "year": "2024",
-      "image": "https://raw.githubusercontent.com/Kartiik7/PortFolio-1/main/src/assets/projectsImg/1.png"
+      "image": "https://raw.githubusercontent.com/Kartiik7/PortFolio-1/main/src/assets/projectsImg/1.png",
+      "desc": "A full-stack productivity platform featuring JWT auth, task management with priorities, and interactive progress charts."
     },
     {
       "id": "02",
@@ -69,7 +70,8 @@
       "live": "https://dishcraft.com",
       "github": "kartiik7/dishcraft",
       "year": "2024",
-      "image": "https://raw.githubusercontent.com/Kartiik7/PortFolio-1/main/src/assets/projectsImg/2.png"
+      "image": "https://raw.githubusercontent.com/Kartiik7/PortFolio-1/main/src/assets/projectsImg/2.png",
+      "desc": "Community-driven recipe sharing platform with AI recommendations, ingredient filtering, and a collaborative kitchen vibe."
     },
     {
       "id": "03",
@@ -78,7 +80,8 @@
       "live": "#",
       "github": "kartiik7",
       "year": "2023",
-      "image": "https://raw.githubusercontent.com/Kartiik7/PortFolio-1/main/src/assets/projectsImg/3.png"
+      "image": "https://raw.githubusercontent.com/Kartiik7/PortFolio-1/main/src/assets/projectsImg/3.png",
+      "desc": "An administrative dashboard for educational institutions to manage student records, attendance, and performance analytics."
     },
     {
       "id": "04",
@@ -87,7 +90,8 @@
       "live": "#",
       "github": "kartiik7",
       "year": "2023",
-      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuC1AMVeW6dD9Q8sjLEP_dyXElCCjBb2l4T7ryPLe66TicYCLtGXUZB1oLNRXj9_IieOR1EUuiuTDSHutvGA9mgT8DhV9--CfYifs_soBG0fQh5st2x3HycCD94QgZqr127pyMJLTfUMEGLFV80O7d5IXf4NoqECaPaI0d6DfYWV76FRYi0-4R4mOs3dVrrfqdAq0FSrKs3q7HcBzNM10Zguhg5Nk29VEK-mqwZS_vmZAjJxdVQ57Pec0T82zbj_LcUhW0z_We5twQ"
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuC1AMVeW6dD9Q8sjLEP_dyXElCCjBb2l4T7ryPLe66TicYCLtGXUZB1oLNRXj9_IieOR1EUuiuTDSHutvGA9mgT8DhV9--CfYifs_soBG0fQh5st2x3HycCD94QgZqr127pyMJLTfUMEGLFV80O7d5IXf4NoqECaPaI0d6DfYWV76FRYi0-4R4mOs3dVrrfqdAq0FSrKs3q7HcBzNM10Zguhg5Nk29VEK-mqwZS_vmZAjJxdVQ57Pec0T82zbj_LcUhW0z_We5twQ",
+      "desc": "A experimental design project focused on high-performance animations, fluid typography, and breaking traditional UI patterns."
     },
     {
       "id": "05",
@@ -96,7 +100,8 @@
       "live": "#",
       "github": "kartiik7",
       "year": "2023",
-      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDXNtn2FZC3dYWdp7poPiX4KEnXAw2sD934aCzp_bmvhPNvF8RAr0Oq8VJzRrKnNzoo8qPbYhidT1a44N6oqCVHYDCRZwb-nEclGH1SX8YqaV-5fEOBM4V49rfGa3Yk3BzucjoHIBb-I51bTU2qkjcM579teCdXhSKyEcp3_jExuw7pLoIwu2MadjDGSq_JwkLjXug1-LjbEDfNiZxRagcL0kOM_vhqACkaoAvxr-mA9omYfKI3S9J1o80kLoqWXAPefBskgtRS4w"
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDXNtn2FZC3dYWdp7poPiX4KEnXAw2sD934aCzp_bmvhPNvF8RAr0Oq8VJzRrKnNzoo8qPbYhidT1a44N6oqCVHYDCRZwb-nEclGH1SX8YqaV-5fEOBM4V49rfGa3Yk3BzucjoHIBb-I51bTU2qkjcM579teCdXhSKyEcp3_jExuw7pLoIwu2MadjDGSq_JwkLjXug1-LjbEDfNiZxRagcL0kOM_vhqACkaoAvxr-mA9omYfKI3S9J1o80kLoqWXAPefBskgtRS4w",
+      "desc": "Advanced data visualization tool for analyzing complex datasets using D3.js and PostgreSQL backends."
     }
   ],
   "profiles": [
